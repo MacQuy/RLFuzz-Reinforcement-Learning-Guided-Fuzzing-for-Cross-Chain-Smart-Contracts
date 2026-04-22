@@ -15,8 +15,9 @@ use tracing::info;
 
 use crate::{
     r#const::{CORPUS_INITIAL_VOTES, DROP_THRESHOLD, PRUNE_AMT,
-        RL_EPSILON, RL_ALPHA, RL_GAMMA, RL_INIT_Q, RL_PRUNE_Q_THRESHOLD,
-        RL_REWARD_BUG_FOUND, RL_REWARD_CMP_IMPROVE, RL_REWARD_COV_NEW, RL_REWARD_STEP},
+        RL_INIT_Q, RL_PRUNE_Q_THRESHOLD,
+        RL_REWARD_BUG_FOUND, RL_REWARD_CMP_IMPROVE, RL_REWARD_COV_NEW, RL_REWARD_STEP,
+        UCB_C, UCB_EPSILON_INIT, UCB_EPSILON_MIN},
     scheduler::{DependencyTree, HasVote, VoteData},
     state::HasParent,
 };
@@ -29,17 +30,25 @@ use crate::{
 /// Được attach vào LibAFL state qua metadata_map.
 #[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct RLMetadata {
-    /// Q-table: corpus_id -> Q-value
-    pub q_table: HashMap<usize, f64>,
+    /// UCB: mean reward của mỗi arm (corpus entry)
+    pub mean_reward: HashMap<usize, f64>,
+
+    /// UCB: số lần mỗi arm được chọn
+    pub visit_count: HashMap<usize, u64>,
+
+    /// Tổng số lần select — dùng để tính UCB score
+    pub total_visits: u64,
 
     /// Index của corpus entry được chọn lần trước
-    /// Cần để update Q(s, a) sau khi có reward
     pub last_selected: Option<usize>,
+
+    /// Epsilon hiện tại (giảm dần theo thời gian)
+    pub epsilon: f64,
 
     /// Tổng reward tích lũy — dùng để log/debug
     pub total_reward: f64,
 
-    /// Số lần exploit (chọn greedy) vs explore (chọn random)
+    /// Số lần exploit vs explore
     pub exploit_count: usize,
     pub explore_count: usize,
 
@@ -53,8 +62,11 @@ pub struct RLMetadata {
 impl RLMetadata {
     pub fn new() -> Self {
         Self {
-            q_table: HashMap::new(),
+            mean_reward: HashMap::new(),
+            visit_count: HashMap::new(),
+            total_visits: 1, // bắt đầu từ 1 để tránh ln(0)
             last_selected: None,
+            epsilon: UCB_EPSILON_INIT,
             total_reward: 0.0,
             exploit_count: 0,
             explore_count: 0,
@@ -63,52 +75,62 @@ impl RLMetadata {
         }
     }
 
-    /// Lấy Q-value của một state, mặc định là RL_INIT_Q (optimistic)
-    pub fn get_q(&self, idx: usize) -> f64 {
-        *self.q_table.get(&idx).unwrap_or(&RL_INIT_Q)
+    /// Lấy mean reward của một arm, mặc định là RL_INIT_Q (optimistic)
+    pub fn get_mean(&self, idx: usize) -> f64 {
+        *self.mean_reward.get(&idx).unwrap_or(&RL_INIT_Q)
     }
 
-    /// Update Q-value theo công thức Q-learning:
-    /// Q(s) = Q(s) + alpha * (reward + gamma * max_Q_next - Q(s))
-    ///
-    /// Vì đây là stateless bandit (không có transition state thực sự),
-    /// ta đơn giản hoá: Q(s) = Q(s) + alpha * (reward - Q(s))
-    pub fn update_q(&mut self, idx: usize, reward: f64) {
-        let current_q = self.get_q(idx);
-        let new_q = current_q + RL_ALPHA * (reward + RL_GAMMA * self.max_q() - current_q);
-        self.q_table.insert(idx, new_q.max(0.0)); // Q không âm
+    /// Tính UCB1 score cho một arm:
+    /// UCB(i) = mean_reward(i) + C * sqrt(ln(total_visits) / visit_count(i))
+    pub fn ucb_score(&self, idx: usize) -> f64 {
+        let mean = self.get_mean(idx);
+        let visits = *self.visit_count.get(&idx).unwrap_or(&1) as f64;
+        let bonus = UCB_C * ((self.total_visits as f64).ln() / visits).sqrt();
+        mean + bonus
+    }
+
+    /// Update mean reward theo incremental mean:
+    /// mean_new = mean_old + (reward - mean_old) / visit_count
+    /// Không cần lưu toàn bộ history, O(1) memory.
+    pub fn update(&mut self, idx: usize, reward: f64) {
+        let visits = self.visit_count.entry(idx).or_insert(0);
+        *visits += 1;
+        let n = *visits as f64;
+        let mean = self.mean_reward.entry(idx).or_insert(RL_INIT_Q);
+        *mean += (reward - *mean) / n; // incremental mean
+        self.total_visits += 1;
         self.total_reward += reward;
     }
 
-    /// Q-value lớn nhất trong toàn bộ table — dùng cho Bellman update
-    pub fn max_q(&self) -> f64 {
-        self.q_table
-            .values()
-            .cloned()
-            .fold(RL_INIT_Q, f64::max)
+    /// Decay epsilon: giảm dần sau mỗi lần select
+    /// epsilon_new = max(UCB_EPSILON_MIN, epsilon * 0.9995)
+    pub fn decay_epsilon(&mut self) {
+        self.epsilon = (self.epsilon * 0.9995_f64).max(UCB_EPSILON_MIN);
     }
 
-    /// Chọn index theo epsilon-greedy:
-    /// - Với xác suất epsilon: chọn ngẫu nhiên (explore)
-    /// - Ngược lại: chọn index có Q-value cao nhất (exploit)
+    /// Chọn arm theo UCB1 + epsilon-greedy decay:
+    /// - Với xác suất epsilon (giảm dần): explore ngẫu nhiên
+    /// - Ngược lại: chọn arm có UCB score cao nhất
     pub fn select(&mut self, indices: &[usize], rand_val: f64) -> usize {
         if indices.is_empty() {
             panic!("RLScheduler: corpus rỗng, không thể select");
         }
 
-        if rand_val < RL_EPSILON {
+        self.decay_epsilon();
+
+        if rand_val < self.epsilon {
             // EXPLORE: chọn ngẫu nhiên
             self.explore_count += 1;
-            let i = (rand_val / RL_EPSILON * indices.len() as f64) as usize;
+            let i = (rand_val / self.epsilon * indices.len() as f64) as usize;
             indices[i.min(indices.len() - 1)]
         } else {
-            // EXPLOIT: chọn Q-value cao nhất
+            // EXPLOIT: chọn UCB score cao nhất
             self.exploit_count += 1;
             *indices
                 .iter()
                 .max_by(|a, b| {
-                    self.get_q(**a)
-                        .partial_cmp(&self.get_q(**b))
+                    self.ucb_score(**a)
+                        .partial_cmp(&self.ucb_score(**b))
                         .unwrap_or(std::cmp::Ordering::Equal)
                 })
                 .unwrap()
@@ -207,7 +229,7 @@ where
         }
         let meta = state.metadata_map_mut().get_mut::<RLMetadata>().unwrap();
         // Vote từ feedback = cmp improvement reward nhỏ
-        meta.update_q(idx, RL_REWARD_CMP_IMPROVE);
+        meta.update(idx, RL_REWARD_CMP_IMPROVE);
     }
 }
 
@@ -238,8 +260,9 @@ where
             let parent_idx = state.get_parent_idx();
             let rl_meta = state.metadata_map_mut().get_mut::<RLMetadata>().unwrap();
 
-            // Entry mới: optimistic init Q-value
-            rl_meta.q_table.entry(idx_usize).or_insert(RL_INIT_Q);
+            // Entry mới: optimistic init (visit_count=1, mean=RL_INIT_Q)
+            rl_meta.mean_reward.entry(idx_usize).or_insert(RL_INIT_Q);
+            rl_meta.visit_count.entry(idx_usize).or_insert(1);
 
             #[cfg(feature = "full_trace")]
             rl_meta.deps.add_node(idx_usize, parent_idx);
@@ -256,7 +279,7 @@ where
 
                 // Sắp xếp theo Q-value tăng dần (Q thấp = ứng viên bị prune trước)
                 let mut candidates: Vec<(usize, f64)> = rl_meta
-                    .q_table
+                    .mean_reward
                     .iter()
                     .map(|(k, v)| (*k, *v))
                     .collect();
@@ -317,14 +340,14 @@ where
         {
             let rl_meta = state.metadata_map_mut().get_mut::<RLMetadata>().unwrap();
             if let (Some(last_idx), Some(reward)) = (rl_meta.last_selected, reward_opt) {
-                rl_meta.update_q(last_idx, reward);
+                rl_meta.update(last_idx, reward);
             }
         }
 
         // Lấy danh sách tất cả indices còn trong corpus
         let indices: Vec<usize> = {
             let rl_meta = state.metadata_map().get::<RLMetadata>().unwrap();
-            rl_meta.q_table.keys().cloned().collect()
+            rl_meta.mean_reward.keys().cloned().collect()
         };
 
         if indices.is_empty() {
@@ -379,7 +402,8 @@ where
     ) -> Result<(), Error> {
         let idx_usize = usize::from(idx);
         if let Some(meta) = state.metadata_map_mut().get_mut::<RLMetadata>() {
-            meta.q_table.remove(&idx_usize);
+            meta.mean_reward.remove(&idx_usize);
+            meta.visit_count.remove(&idx_usize);
             if meta.last_selected == Some(idx_usize) {
                 meta.last_selected = None;
             }
@@ -409,7 +433,7 @@ where
             state.metadata_map_mut().insert(RLMetadata::new());
         }
         let meta = state.metadata_map_mut().get_mut::<RLMetadata>().unwrap();
-        meta.update_q(state_idx, RL_REWARD_COV_NEW * 2.0);
+        meta.update(state_idx, RL_REWARD_COV_NEW * 2.0);
 
         #[cfg(feature = "full_trace")]
         meta.deps.mark_never_delete(state_idx);
@@ -420,7 +444,7 @@ where
             state.metadata_map_mut().insert(RLMetadata::new());
         }
         let meta = state.metadata_map_mut().get_mut::<RLMetadata>().unwrap();
-        meta.update_q(state_idx, RL_REWARD_CMP_IMPROVE);
+        meta.update(state_idx, RL_REWARD_CMP_IMPROVE);
     }
 }
 

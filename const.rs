@@ -77,12 +77,12 @@ pub const MAX_POWER: f64 = 3200.0;
 pub const MIN_POWER: f64 = 32.0;
 
 // RL scheduler hyperparameters
-pub const RL_EPSILON: f64 = 0.15;
-pub const RL_ALPHA: f64 = 0.1;
-pub const RL_GAMMA: f64 = 0.9;
 pub const RL_INIT_Q: f64 = 1.0;
 pub const RL_PRUNE_Q_THRESHOLD: f64 = 0.1;
 pub const RL_REWARD_BUG_FOUND: f64 = 100.0;
 pub const RL_REWARD_CMP_IMPROVE: f64 = 5.0;
 pub const RL_REWARD_COV_NEW: f64 = 3.0;
-pub const RL_REWARD_STEP: f64 = -0.01;
+pub const RL_REWARD_STEP: f64 = -0.1;
+pub const UCB_C: f64 = 1.5;
+pub const UCB_EPSILON_INIT: f64 = 0.3;
+pub const UCB_EPSILON_MIN: f64 = 0.05;
