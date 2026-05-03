@@ -1,4 +1,5 @@
 pub mod abi;
+pub mod cross_chain;
 pub mod blaz;
 pub mod bytecode_analyzer;
 pub mod bytecode_iterator;

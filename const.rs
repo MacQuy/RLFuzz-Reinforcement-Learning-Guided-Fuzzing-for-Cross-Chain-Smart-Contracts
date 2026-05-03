@@ -86,3 +86,12 @@ pub const RL_REWARD_STEP: f64 = -0.1;
 pub const UCB_C: f64 = 1.5;
 pub const UCB_EPSILON_INIT: f64 = 0.3;
 pub const UCB_EPSILON_MIN: f64 = 0.05;
+
+// Phase 4 — Cross-chain mutation
+/// Probability of exploration vs exploitation in cross-chain mutator (70% explore)
+pub const MUTATION_EXPLORE_RATIO: f64 = 0.7;
+
+// Phase 5 — Cross-chain RL reward signals
+pub const RL_REWARD_MSG_DISPATCHED: f64 = 4.0;
+pub const RL_REWARD_MSG_RELAYED: f64 = 8.0;
+pub const RL_REWARD_INVARIANT_DELTA: f64 = 10.0;

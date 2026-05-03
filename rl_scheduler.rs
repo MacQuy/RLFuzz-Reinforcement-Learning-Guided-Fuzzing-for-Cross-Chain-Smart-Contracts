@@ -471,3 +471,126 @@ pub fn set_reward_signal<S: HasMetadata>(
         state.metadata_map_mut().insert(signal);
     }
 }
+// ============================================================
+// Phase 5 — CrossChainRewardSignal
+// ============================================================
+
+use crate::r#const::{RL_REWARD_MSG_DISPATCHED, RL_REWARD_MSG_RELAYED, RL_REWARD_INVARIANT_DELTA};
+
+/// Signal produced after each cross-chain execution step.
+///
+/// `invariant_delta` is the ratio (minted_b - locked_a) / locked_a for the
+/// most imbalanced token. Positive → approaching bug I1.
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct CrossChainRewardSignal {
+    /// A new message was dispatched (enqueued) during this step
+    pub message_dispatched: bool,
+    /// A pending message was relayed (processed) during this step
+    pub message_relayed: bool,
+    /// Imbalance ratio: (minted - locked) / locked. Positive = approaching desync.
+    pub invariant_delta: f64,
+}
+
+impl_serdeany!(CrossChainRewardSignal);
+
+impl CrossChainRewardSignal {
+    pub fn new(message_dispatched: bool, message_relayed: bool, invariant_delta: f64) -> Self {
+        Self { message_dispatched, message_relayed, invariant_delta }
+    }
+
+    /// Compute the scalar reward for this signal.
+    ///
+    /// reward = Σ component rewards:
+    ///   + RL_REWARD_MSG_DISPATCHED   if dispatched
+    ///   + RL_REWARD_MSG_RELAYED      if relayed
+    ///   + RL_REWARD_INVARIANT_DELTA * ln(1 + delta)   if delta > 0
+    pub fn compute_reward(&self) -> f64 {
+        let mut reward = 0.0;
+        if self.message_dispatched {
+            reward += RL_REWARD_MSG_DISPATCHED;
+        }
+        if self.message_relayed {
+            reward += RL_REWARD_MSG_RELAYED;
+        }
+        if self.invariant_delta > 0.0 {
+            reward += RL_REWARD_INVARIANT_DELTA * (1.0 + self.invariant_delta).ln();
+        }
+        reward
+    }
+}
+
+/// Build a CrossChainRewardSignal by diffing queue state before and after execution.
+///
+/// Call this from `feedback.rs` after `execute_deposit` or `execute_relay`:
+///
+/// ```
+/// let signal = build_cross_chain_signal(
+///     prev_pending, prev_processed,
+///     exec.state.queue.pending_count(),
+///     exec.state.queue.processed_count(),
+///     &exec.state,
+/// );
+/// ```
+pub fn build_cross_chain_signal(
+    prev_pending: usize,
+    prev_processed: usize,
+    curr_pending: usize,
+    curr_processed: usize,
+    state: &crate::evm::cross_chain::DualChainState,
+) -> CrossChainRewardSignal {
+    use crate::evm::types::EVMU256;
+
+    let message_dispatched = curr_pending + curr_processed > prev_pending + prev_processed;
+    let message_relayed = curr_processed > prev_processed;
+
+    // Compute invariant_delta: max imbalance ratio across all tokens
+    let mut max_delta: f64 = 0.0;
+    for (token, locked) in &state.locked_a {
+        let locked_f = locked.saturating_to::<u128>() as f64;
+        if locked_f == 0.0 { continue; }
+        let minted = state.minted_b.get(token).copied().unwrap_or(EVMU256::ZERO);
+        let minted_f = minted.saturating_to::<u128>() as f64;
+        let delta = (minted_f - locked_f) / locked_f;
+        if delta > max_delta {
+            max_delta = delta;
+        }
+    }
+
+    CrossChainRewardSignal::new(message_dispatched, message_relayed, max_delta)
+}
+
+// ============================================================
+// Unit Tests — Phase 5
+// ============================================================
+
+#[cfg(test)]
+mod cross_chain_reward_tests {
+    use super::*;
+
+    #[test]
+    fn test_reward_dispatched_only() {
+        let sig = CrossChainRewardSignal::new(true, false, 0.0);
+        assert_eq!(sig.compute_reward(), RL_REWARD_MSG_DISPATCHED);
+    }
+
+    #[test]
+    fn test_reward_relayed_exceeds_dispatched() {
+        let sig = CrossChainRewardSignal::new(false, true, 0.0);
+        assert!(sig.compute_reward() > RL_REWARD_MSG_DISPATCHED,
+            "Relayed reward should exceed dispatched reward");
+    }
+
+    #[test]
+    fn test_reward_invariant_delta_positive() {
+        let sig = CrossChainRewardSignal::new(false, true, 0.5);
+        let reward = sig.compute_reward();
+        assert!(reward > RL_REWARD_MSG_RELAYED,
+            "Positive invariant_delta must add to total reward");
+    }
+
+    #[test]
+    fn test_reward_zero_for_all_false_zero() {
+        let sig = CrossChainRewardSignal::new(false, false, 0.0);
+        assert_eq!(sig.compute_reward(), 0.0);
+    }
+}

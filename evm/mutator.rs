@@ -403,3 +403,265 @@ where
         Ok(res)
     }
 }
+
+// ============================================================
+// Phase 4 — CrossChain Generic Mutation Strategy
+// ============================================================
+
+use crate::evm::cross_chain::executor::CrossChainMutationMeta;
+
+/// Four strategy types for cross-chain mutation.
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub enum CrossChainMutationStrategy {
+    /// Flip 1–8 random bits in a random calldata byte
+    BitFlip,
+    /// Mutate a single ABI-encoded field (Zero / Max / Increment / Decrement / Random)
+    AbiFieldMutate,
+    /// Use queue state to set intent flags for the executor
+    StateAwareMutate,
+    /// Set a numeric field to a boundary value
+    BoundaryValue,
+}
+
+/// Sub-types for AbiFieldMutate
+#[derive(Clone, Debug)]
+pub enum AbiMutateSubtype {
+    Zero,
+    Max,
+    Increment,
+    Decrement,
+    RandomBytes,
+}
+
+/// Corpus energy entry — tracks per-input exploration weight
+#[derive(Clone, Debug)]
+pub struct CorpusEnergyEntry {
+    pub energy: f64,
+    pub last_strategy: Option<CrossChainMutationStrategy>,
+}
+
+impl Default for CorpusEnergyEntry {
+    fn default() -> Self {
+        Self { energy: 1.0, last_strategy: None }
+    }
+}
+
+impl CorpusEnergyEntry {
+    pub const MAX_ENERGY: f64 = 10.0;
+    pub const MIN_ENERGY: f64 = 0.1;
+
+    /// Reward: new coverage edge or new invariant flag triggered
+    pub fn reward(&mut self) {
+        self.energy = (self.energy * 1.5).min(Self::MAX_ENERGY);
+    }
+
+    /// Decay: no new signal
+    pub fn decay(&mut self) {
+        self.energy = (self.energy * 0.9).max(Self::MIN_ENERGY);
+    }
+}
+
+/// Cross-chain mutator operating on raw calldata bytes.
+pub struct CrossChainMutator {
+    pub corpus: Vec<(Vec<u8>, CorpusEnergyEntry)>,
+    /// xorshift64 state
+    rng: u64,
+    /// ABI available? If so, field-aware mutation is possible
+    pub abi_available: bool,
+}
+
+impl CrossChainMutator {
+    pub fn new(seed: u64) -> Self {
+        Self {
+            corpus: Vec::new(),
+            rng: if seed == 0 { 0xdeadbeef } else { seed },
+            abi_available: false,
+        }
+    }
+
+    fn next_rand(&mut self) -> u64 {
+        let mut x = self.rng;
+        x ^= x << 13;
+        x ^= x >> 7;
+        x ^= x << 17;
+        self.rng = x;
+        x
+    }
+
+    /// Add a new seed to the corpus with default energy.
+    pub fn add_seed(&mut self, data: Vec<u8>) {
+        self.corpus.push((data, CorpusEnergyEntry::default()));
+    }
+
+    /// Select the next corpus entry using weighted random selection (proportional to energy).
+    pub fn select_next(&mut self) -> Option<usize> {
+        if self.corpus.is_empty() {
+            return None;
+        }
+        let total: f64 = self.corpus.iter().map(|(_, e)| e.energy).sum();
+        let mut pick = (self.next_rand() as f64 / u64::MAX as f64) * total;
+        for (i, (_, entry)) in self.corpus.iter().enumerate() {
+            pick -= entry.energy;
+            if pick <= 0.0 {
+                return Some(i);
+            }
+        }
+        Some(self.corpus.len() - 1)
+    }
+
+    /// Notify the corpus that the execution at `idx` produced a new signal.
+    pub fn notify_new_signal(&mut self, idx: usize) {
+        if let Some((_, entry)) = self.corpus.get_mut(idx) {
+            entry.reward();
+        }
+    }
+
+    /// Notify the corpus that the execution at `idx` produced no new signal.
+    pub fn notify_no_signal(&mut self, idx: usize) {
+        if let Some((_, entry)) = self.corpus.get_mut(idx) {
+            entry.decay();
+        }
+    }
+
+    // --------------------------------------------------------
+    // Strategy selection (70% explore / 30% exploit)
+    // --------------------------------------------------------
+
+    fn pick_strategy(&mut self, last_strategy: Option<&CrossChainMutationStrategy>) -> CrossChainMutationStrategy {
+        let explore = (self.next_rand() % 100) < 70; // MUTATION_EXPLORE_RATIO = 0.7
+        if explore || last_strategy.is_none() {
+            match self.next_rand() % 4 {
+                0 => CrossChainMutationStrategy::BitFlip,
+                1 => CrossChainMutationStrategy::AbiFieldMutate,
+                2 => CrossChainMutationStrategy::StateAwareMutate,
+                _ => CrossChainMutationStrategy::BoundaryValue,
+            }
+        } else {
+            // Exploit: repeat last successful strategy
+            last_strategy.unwrap().clone()
+        }
+    }
+
+    // --------------------------------------------------------
+    // Deposit mutation
+    // --------------------------------------------------------
+
+    /// Mutate calldata for a deposit (lock) transaction.
+    pub fn mutate_deposit(&mut self, data: &mut Vec<u8>) -> CrossChainMutationMeta {
+        let roll = self.next_rand() % 4;
+        match roll {
+            0 | 1 => self.apply_boundary_value(data, 4), // 50%: BoundaryValue on amount
+            2 => self.apply_bit_flip(data),               // 25%: BitFlip
+            _ => self.apply_abi_field_mutate(data),        // 25%: AbiFieldMutate
+        };
+        CrossChainMutationMeta::default()
+    }
+
+    // --------------------------------------------------------
+    // Relay mutation
+    // --------------------------------------------------------
+
+    /// Mutate calldata for a relay transaction. Returns the meta intent flags.
+    pub fn mutate_relay(&mut self, data: &mut Vec<u8>) -> CrossChainMutationMeta {
+        let mut meta = CrossChainMutationMeta::default();
+        match self.next_rand() % 5 {
+            0 | 1 => {
+                // 40%: StateAwareMutate
+                meta.force_zero_merkle_root = self.next_rand() % 2 == 0;
+                meta.force_replay_nonce = self.next_rand() % 2 == 0;
+                meta.force_inflate_value = self.next_rand() % 2 == 0;
+            }
+            2 => {
+                // 20%: AbiFieldMutate Zero on random field
+                self.apply_abi_field_zero(data);
+            }
+            3 => {
+                // 20%: BitFlip in first 64 bytes
+                if !data.is_empty() {
+                    let range = data.len().min(64);
+                    let byte_idx = (self.next_rand() as usize) % range;
+                    let mask = 1u8 << (self.next_rand() % 8);
+                    data[byte_idx] ^= mask;
+                }
+            }
+            _ => {
+                // 20%: BoundaryValue Max on value field
+                self.apply_boundary_max(data, 4);
+                meta.force_inflate_value = true;
+            }
+        }
+        meta
+    }
+
+    // --------------------------------------------------------
+    // Primitive mutations
+    // --------------------------------------------------------
+
+    fn apply_bit_flip(&mut self, data: &mut Vec<u8>) {
+        if data.is_empty() { return; }
+        let byte_idx = (self.next_rand() as usize) % data.len();
+        let bits = (self.next_rand() % 8) + 1;
+        let mask: u8 = ((1u16 << bits) - 1) as u8;
+        data[byte_idx] ^= mask;
+    }
+
+    fn apply_abi_field_mutate(&mut self, data: &mut Vec<u8>) {
+        // Each ABI field is 32 bytes; skip 4-byte selector
+        if data.len() < 36 { return; }
+        let fields = (data.len() - 4) / 32;
+        if fields == 0 { return; }
+        let field_idx = (self.next_rand() as usize) % fields;
+        let start = 4 + field_idx * 32;
+        let end = start + 32;
+        if end > data.len() { return; }
+
+        match self.next_rand() % 5 {
+            0 => { data[start..end].fill(0); }  // Zero
+            1 => { data[start..end].fill(0xff); } // Max
+            2 => {
+                // Increment last byte
+                let last = end - 1;
+                data[last] = data[last].wrapping_add(1);
+            }
+            3 => {
+                let last = end - 1;
+                data[last] = data[last].wrapping_sub(1);
+            }
+            _ => {
+                // RandomBytes
+                for b in data[start..end].iter_mut() {
+                    *b = (self.next_rand() & 0xff) as u8;
+                }
+            }
+        }
+    }
+
+    fn apply_abi_field_zero(&mut self, data: &mut Vec<u8>) {
+        if data.len() < 36 { return; }
+        let fields = (data.len() - 4) / 32;
+        if fields == 0 { return; }
+        let field_idx = (self.next_rand() as usize) % fields;
+        let start = 4 + field_idx * 32;
+        let end = (start + 32).min(data.len());
+        data[start..end].fill(0);
+    }
+
+    fn apply_boundary_value(&mut self, data: &mut Vec<u8>, field_offset: usize) {
+        const BOUNDARIES: [u64; 5] = [0, u64::MAX, (1u64 << 96) - 1, (1u64 << 32) - 1, 1];
+        let val = BOUNDARIES[(self.next_rand() as usize) % BOUNDARIES.len()];
+        let end = (field_offset + 32).min(data.len());
+        if end <= field_offset { return; }
+        let bytes = val.to_be_bytes();
+        // Write into the last 8 bytes of the 32-byte slot
+        let slot_end = end;
+        let write_start = slot_end.saturating_sub(8);
+        let avail = slot_end - write_start;
+        data[write_start..slot_end].copy_from_slice(&bytes[8 - avail..]);
+    }
+
+    fn apply_boundary_max(&mut self, data: &mut Vec<u8>, field_offset: usize) {
+        let end = (field_offset + 32).min(data.len());
+        if end <= field_offset { return; }
+        data[field_offset..end].fill(0xff);
+    }
+}

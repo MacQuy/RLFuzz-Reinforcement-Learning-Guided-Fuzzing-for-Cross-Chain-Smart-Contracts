@@ -44,6 +44,10 @@ pub enum EVMInputTy {
     ArbitraryCallBoundedAddr,
     /// [Depreciated] A liquidation transaction
     Liquidate,
+    /// Cross-chain: deposit (lock) tokens on Chain A
+    CrossChainDeposit,
+    /// Cross-chain: relay a message from Chain A to Chain B
+    CrossChainRelay,
 }
 
 const CALL_VALUE_MAX_BYTES: usize = 23; // 309M ether

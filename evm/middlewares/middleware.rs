@@ -32,6 +32,7 @@ pub enum MiddlewareType {
     Reentrancy,
     IntegerOverflow,
     Cheatcode,
+    CrossChainInterceptor,
 }
 
 #[derive(Clone, Debug, Hash, PartialEq, Eq, Serialize, Deserialize, Copy)]
