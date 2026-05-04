@@ -261,3 +261,41 @@ mod tests {
         assert_eq!(r1.bugs_found.len(), r2.bugs_found.len());
     }
 }
+
+// ============================================================
+// Extended oracle runner — calls all gap-coverage oracles
+// ============================================================
+
+use crate::evm::oracles::{
+    access_control::{AccessControlOracle, AccessControlState},
+    integer_overflow::IntegerOverflowOracle,
+    price_oracle_manip::{PoolState, PriceOracleOracle},
+};
+
+/// Run the three dataset-gap oracles on a snapshot diff and return all
+/// triggered bug indices. Called from the fuzzer after each relay step.
+pub fn run_gap_oracles(
+    caller: EVMAddress,
+    slot_changes: &[(EVMU256, EVMU256, EVMU256)],
+    pre_pools: &[PoolState],
+    post_pools: &[PoolState],
+    ac_oracle: &AccessControlOracle,
+    price_oracle: &PriceOracleOracle,
+) -> Vec<u64> {
+    let mut bugs = vec![];
+
+    // 1. Access control
+    let slot_before: std::collections::HashMap<EVMU256, EVMU256> = slot_changes
+        .iter().map(|(s, pre, _)| (*s, *pre)).collect();
+    let slot_after: std::collections::HashMap<EVMU256, EVMU256> = slot_changes
+        .iter().map(|(s, _, post)| (*s, *post)).collect();
+    bugs.extend(ac_oracle.inspect(caller, &slot_before, &slot_after));
+
+    // 2. Integer overflow
+    bugs.extend(IntegerOverflowOracle::inspect(slot_changes));
+
+    // 3. Price oracle manipulation
+    bugs.extend(price_oracle.inspect(post_pools));
+
+    bugs
+}

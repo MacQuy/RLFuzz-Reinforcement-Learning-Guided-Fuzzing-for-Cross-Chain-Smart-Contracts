@@ -197,6 +197,8 @@ pub struct DualChainState {
     pub atomicity_violated: bool,
     /// Phase 6 placeholder: bridge balance drained
     pub drain_detected: bool,
+    /// Cross-chain re-entrant deposit detected during relay
+    pub reentrancy_detected: bool,
 }
 
 impl Default for DualChainState {
@@ -213,6 +215,7 @@ impl Default for DualChainState {
             queue_consistency_violated: false,
             atomicity_violated: false,
             drain_detected: false,
+            reentrancy_detected: false,
         }
     }
 }

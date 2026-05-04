@@ -6,6 +6,7 @@ use serde::{Deserialize, Serialize};
 use tracing::{debug, warn};
 
 use super::{CrossChainMessage, DualChainState, MessageStatus};
+use crate::evm::oracles::reentrancy_crosschain::inspect_reentrancy;
 use super::exploit_path::{ExploitPath, ExploitStep};
 use crate::evm::{
     middlewares::cross_chain_interceptor::{
@@ -253,6 +254,7 @@ impl DualChainExecutor {
         meta: Option<&CrossChainMutationMeta>,
     ) -> bool {
         self.iteration += 1;
+        let pending_before_relay = self.state.queue.pending_count();
 
         let Some(msg_id) = self.select_pending_id() else {
             self.write_trace(&TraceRecord {
@@ -325,6 +327,19 @@ impl DualChainExecutor {
                         self.state.fake_message_accepted = true;
                         warn!("[Executor] I2: fake_message_accepted msg={}", msg_id);
                     }
+                }
+
+                // Cross-chain reentrancy check:
+                // If pending count grew while the relay message was still Pending,
+                // a re-entrant deposit occurred before relay completed.
+                let pending_during = self.state.queue.pending_count();
+                let reentrancy_bugs = inspect_reentrancy(
+                    pending_before_relay,
+                    pending_during,
+                    true, // relay message still Pending at this point
+                );
+                if !reentrancy_bugs.is_empty() {
+                    self.state.reentrancy_detected = true;
                 }
 
                 self.state.queue.mark_processed(msg_id);

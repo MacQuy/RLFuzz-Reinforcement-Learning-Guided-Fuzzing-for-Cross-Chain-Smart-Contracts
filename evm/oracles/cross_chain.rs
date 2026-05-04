@@ -17,6 +17,7 @@ pub const CROSS_CHAIN_DRAIN_IDX: u64 = 15;
 pub const CROSS_CHAIN_DESYNC_IDX: u64 = 16;
 pub const CROSS_CHAIN_QUEUE_IDX: u64 = 17;
 pub const CROSS_CHAIN_ATOMICITY_IDX: u64 = 18;
+pub const CROSS_CHAIN_REENTRANCY_IDX: u64 = 21;
 
 pub struct CrossChainOracle;
 
@@ -73,6 +74,12 @@ impl CrossChainOracle {
         if state.drain_detected {
             warn!("[CrossChainOracle] I7: drain_detected");
             bugs.push(CROSS_CHAIN_DRAIN_IDX);
+        }
+
+        // I8 — Cross-chain reentrancy
+        if state.reentrancy_detected {
+            warn!("[CrossChainOracle] I8: reentrancy_detected");
+            bugs.push(CROSS_CHAIN_REENTRANCY_IDX);
         }
 
         bugs
