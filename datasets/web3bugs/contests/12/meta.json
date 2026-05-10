@@ -1,0 +1,19 @@
+{
+  "contest_id": "12",
+  "sol_count": 55,
+  "bugs": [
+    {
+      "label": "S6-4",
+      "description": "\"YieldMath.sol / Log2: >= or > ?\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    }
+  ],
+  "oracle_indices": [
+    11
+  ],
+  "oracle_names": [
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

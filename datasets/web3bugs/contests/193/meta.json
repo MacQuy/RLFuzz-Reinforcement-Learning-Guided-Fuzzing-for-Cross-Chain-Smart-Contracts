@@ -1,0 +1,27 @@
+{
+  "contest_id": "193",
+  "sol_count": 4,
+  "bugs": [
+    {
+      "label": "L1",
+      "description": "\"Reentrancy in buy function for ERC777 tokens allows buying funds with considerable discount\"",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "label": "S1-2",
+      "description": "\"Liquidity providers may lose funds when adding liquidity\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    }
+  ],
+  "oracle_indices": [
+    9,
+    20
+  ],
+  "oracle_names": [
+    "PRICE_ORACLE_MANIP",
+    "REENTRANCY"
+  ],
+  "needs_rpc": false
+}

@@ -1,0 +1,19 @@
+{
+  "contest_id": "8",
+  "sol_count": 74,
+  "bugs": [
+    {
+      "label": "S6-4",
+      "description": "\"getRandomTokenIdFromFund yields wrong probabilities for ERC1155\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    }
+  ],
+  "oracle_indices": [
+    11
+  ],
+  "oracle_names": [
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

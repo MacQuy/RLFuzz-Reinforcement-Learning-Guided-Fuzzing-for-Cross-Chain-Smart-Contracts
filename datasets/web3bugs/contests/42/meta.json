@@ -1,0 +1,73 @@
+{
+  "contest_id": "42",
+  "sol_count": 58,
+  "bugs": [
+    {
+      "label": "S6-3",
+      "description": "\"Vault fails to track debt correctly that leads to bad debt\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "SC",
+      "description": "\"FeePoolV0.sol#distributeMochi() will unexpectedly flush treasuryShare",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"debts calculation is not accurate\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S3-1",
+      "description": "\"Referrer can drain ReferralFeePoolV0\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "S1-2",
+      "description": "\"treasury is vulnerable to sandwich attack\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "SC",
+      "description": "\"Changing NFT contract in the MochiEngine would break the protocol\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S3-2",
+      "description": "\"treasuryShare is Overwritten in FeePoolV0._shareMochi()\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "S1-2",
+      "description": "\"feePool is vulnerable to sandwich attack.\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "S4-1",
+      "description": "\"Tokens Can Be Stolen By Frontrunning VestedRewardPool.vest() and VestedRewardPool.lock()\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    16,
+    19,
+    20
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "CROSS_CHAIN_DESYNC",
+    "INTEGER_OVERFLOW",
+    "PRICE_ORACLE_MANIP"
+  ],
+  "needs_rpc": false
+}

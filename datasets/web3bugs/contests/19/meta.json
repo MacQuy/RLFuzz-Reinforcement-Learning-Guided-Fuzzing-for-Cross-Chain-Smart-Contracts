@@ -1,0 +1,27 @@
+{
+  "contest_id": "19",
+  "sol_count": 6,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"Router liquidity on receiving chain can be double-dipped by the user\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S3-1",
+      "description": "\"Approval is not reset if the call to IFulfillHelper fails\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    }
+  ],
+  "oracle_indices": [
+    16,
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "CROSS_CHAIN_DESYNC"
+  ],
+  "needs_rpc": false
+}

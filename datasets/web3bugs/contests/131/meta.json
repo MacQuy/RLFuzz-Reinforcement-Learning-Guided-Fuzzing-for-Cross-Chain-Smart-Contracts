@@ -1,0 +1,19 @@
+{
+  "contest_id": "131",
+  "sol_count": 161,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"Total Supply is not guaranteed and is not deterministic.\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC"
+  ],
+  "needs_rpc": false
+}

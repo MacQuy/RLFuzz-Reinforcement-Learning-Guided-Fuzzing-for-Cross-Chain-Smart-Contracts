@@ -1,0 +1,39 @@
+{
+  "contest_id": "61",
+  "sol_count": 37,
+  "bugs": [
+    {
+      "label": "S6-4",
+      "description": "\"In CreditLine#_borrowTokensToLiquidate",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-2",
+      "description": "\"Wrong returns of SavingsAccountUtil.depositFromSavingsAccount() can cause fund loss\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "SC",
+      "description": "\"denial of service\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Yearn token <> shares conversion decimal issue\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC",
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

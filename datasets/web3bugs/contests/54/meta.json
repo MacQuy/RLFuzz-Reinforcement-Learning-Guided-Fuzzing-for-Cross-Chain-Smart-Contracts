@@ -1,0 +1,33 @@
+{
+  "contest_id": "54",
+  "sol_count": 33,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"MEV miner can mint larger than expected UDT total supply\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S3-1",
+      "description": "\"MixinTransfer.sol#transferFrom Wrong implementation can potentially allows attackers to reverse transfer and cause fund loss to the users\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "S3-1",
+      "description": "\"Approvals not cleared after key transfer\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    }
+  ],
+  "oracle_indices": [
+    16,
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "CROSS_CHAIN_DESYNC"
+  ],
+  "needs_rpc": false
+}

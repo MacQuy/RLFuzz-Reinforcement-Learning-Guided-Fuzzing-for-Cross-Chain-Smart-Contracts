@@ -1,0 +1,33 @@
+{
+  "contest_id": "14",
+  "sol_count": 10,
+  "bugs": [
+    {
+      "label": "S6-3",
+      "description": "\"User could lose underlying tokens when redeeming from the IdleYieldSource\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-3",
+      "description": "\"BadgerYieldSource balanceOfToken share calculation seems wrong\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S3-2",
+      "description": "\"withdraw timelock can be circumvented\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

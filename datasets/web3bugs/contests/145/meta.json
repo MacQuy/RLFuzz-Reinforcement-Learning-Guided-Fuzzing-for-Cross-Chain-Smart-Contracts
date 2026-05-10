@@ -1,0 +1,35 @@
+{
+  "contest_id": "145",
+  "sol_count": 80,
+  "bugs": [
+    {
+      "label": "L1",
+      "description": "\"It is possible to create fake ERC1155 NameWrapper token for subdomain",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "label": "S3-2",
+      "description": "\"The expiry of the parent node can be smaller than the one of a child node",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "SC",
+      "description": "\"PARENT_CANNOT_CONTROL can be bypassed by maliciously unwrapping parent node\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    9,
+    16,
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "CROSS_CHAIN_DESYNC",
+    "REENTRANCY"
+  ],
+  "needs_rpc": false
+}

@@ -1,0 +1,12 @@
+{
+  "name": "xbridge",
+  "source_file": "XBridge_exp.sol",
+  "chain": "mainnet",
+  "fork_block": 19723701,
+  "loss_usd": 1600000,
+  "expected_bugs": [
+    "ACCESS_CONTROL"
+  ],
+  "needs_rpc": true,
+  "rpc_env_var": "ETH_RPC_URL"
+}

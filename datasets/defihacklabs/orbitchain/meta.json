@@ -1,0 +1,13 @@
+{
+  "name": "orbitchain",
+  "source_file": "OrbitChain_exp.sol",
+  "chain": "mainnet",
+  "fork_block": 18908049,
+  "loss_usd": 81000000,
+  "expected_bugs": [
+    "CROSS_CHAIN_REPLAY",
+    "ACCESS_CONTROL"
+  ],
+  "needs_rpc": true,
+  "rpc_env_var": "ETH_RPC_URL"
+}

@@ -1,0 +1,63 @@
+{
+  "contest_id": "20",
+  "sol_count": 29,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"Pool.sol & Synth.sol: Failing Max Value Allowance\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S1-1",
+      "description": "\"Synth realise is vulnerable to flash loan attacks\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "S1-1",
+      "description": "\"SynthVault rewards can be gamed\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "S1-2",
+      "description": "\"Missing slippage checks\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "SC",
+      "description": "\"Dividend reward can be gamed\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "SC",
+      "description": "\"Misuse of AMM model on minting Synth (resubmit to add more detail)\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "SC",
+      "description": "\"wrong calcLiquidityHoldings that leads to dead fund in the Pool\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S1-1",
+      "description": "\"Flash loan manipulation on getPoolShareWeight of Utils\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    }
+  ],
+  "oracle_indices": [
+    16,
+    20
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC",
+    "PRICE_ORACLE_MANIP"
+  ],
+  "needs_rpc": false
+}

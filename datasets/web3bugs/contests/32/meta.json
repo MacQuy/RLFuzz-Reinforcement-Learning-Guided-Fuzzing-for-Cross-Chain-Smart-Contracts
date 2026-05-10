@@ -1,0 +1,19 @@
+{
+  "contest_id": "32",
+  "sol_count": 40,
+  "bugs": [
+    {
+      "label": "S6-3",
+      "description": "\"Use of tokenB\u2019s price instead of tokenA in determining account health will lead to protocol mis-accounting and insolvency\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    }
+  ],
+  "oracle_indices": [
+    11
+  ],
+  "oracle_names": [
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

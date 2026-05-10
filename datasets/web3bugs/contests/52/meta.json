@@ -1,0 +1,145 @@
+{
+  "contest_id": "52",
+  "sol_count": 69,
+  "bugs": [
+    {
+      "label": "S1-2",
+      "description": "\"Minting and burning synths exposes users to unlimited slippage\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "S1-1",
+      "description": "\"Redemption value of synths can be manipulated to drain VaderPool of all native assets\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"TwapOracle doesn\u2019t calculate VADER:USDV exchange rate correctly\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S1-1",
+      "description": "\"LPs of VaderPoolV2 can manipulate pool reserves to extract funds from the reserve.\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "SC",
+      "description": "\"VaderReserve does not support paying IL protection out to more than one address",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"VaderPoolV2 incorrectly calculates the amount of IL protection to send to LPs\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S1-1",
+      "description": "\"calculate Loss is vulnerable to flashloan attack\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "S4-1",
+      "description": "\"(dex-v1) BasePool.mint() function can be frontrun\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"VaderRouter._swap performs wrong swap\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-3",
+      "description": "\"VaderRouter.calculateOutGivenIn calculates wrong swap\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S1-1",
+      "description": "\"Attacker can claim more IL by manipulating pool price then removeLiquidity\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "SC",
+      "description": "\"Governance veto can be bypassed\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S1-2",
+      "description": "\"mintSynth() and burnSynth() can be front run\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Synth tokens can get over-minted\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "SC",
+      "description": "\"Wrong design/implementation of addLiquidity() allows attacker to steal funds from the liquidity pool\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Wrong design of swap() results in unexpected and unfavorable outputs\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Incorrect Price Consultation Results\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S1-2",
+      "description": "\"VaderPoolV2.mintFungible exposes users to unlimited slippage\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "S1-2",
+      "description": "\"Unused slippage params\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "SC",
+      "description": "\"Covering impermanent loss allows profiting off asymmetric liquidity provision at expense of reserve holdings\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Incorrect Accrual Of sumNative and sumUSD In Producing Consultation Results\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    16,
+    19,
+    20
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "CROSS_CHAIN_DESYNC",
+    "INTEGER_OVERFLOW",
+    "PRICE_ORACLE_MANIP"
+  ],
+  "needs_rpc": false
+}

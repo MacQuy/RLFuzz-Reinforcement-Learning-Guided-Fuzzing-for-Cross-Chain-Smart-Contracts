@@ -1,0 +1,33 @@
+{
+  "contest_id": "59",
+  "sol_count": 59,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"Unable to remove liquidity in Recovery Mode\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"AuctionBurnReserveSkew.getPegDeltaFrequency() Wrong implementation can result in an improper amount of excess Liquidity Extension balance to be used at the end of an auction\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"AuctionEschapeHatch.sol#exitEarly updates state of the auction wrongly\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC",
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

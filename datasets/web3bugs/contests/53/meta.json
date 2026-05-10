@@ -1,0 +1,19 @@
+{
+  "contest_id": "53",
+  "sol_count": 22,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"Copy your own portfolio to keep earning royalties\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC"
+  ],
+  "needs_rpc": false
+}

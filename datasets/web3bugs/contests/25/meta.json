@@ -1,0 +1,39 @@
+{
+  "contest_id": "25",
+  "sol_count": 61,
+  "bugs": [
+    {
+      "label": "S6-4",
+      "description": "\"CompositeMultiOracle returns wrong decimals for prices?\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S3-1",
+      "description": "\"ERC20Rewards returns wrong rewards if no tokens initially exist\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"ERC20Rewards breaks when setting a different token\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Exchange rates from Compound are assumed with 18 decimals\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

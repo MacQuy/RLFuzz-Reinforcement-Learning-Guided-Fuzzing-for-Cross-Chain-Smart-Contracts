@@ -1,0 +1,13 @@
+{
+  "name": "ronin",
+  "source_file": "Ronin_exp.sol",
+  "chain": "mainnet",
+  "fork_block": 14442834,
+  "loss_usd": 625000000,
+  "expected_bugs": [
+    "CROSS_CHAIN_REPLAY",
+    "ACCESS_CONTROL"
+  ],
+  "needs_rpc": true,
+  "rpc_env_var": "ETH_RPC_URL"
+}

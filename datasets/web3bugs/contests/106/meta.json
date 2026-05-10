@@ -1,0 +1,25 @@
+{
+  "contest_id": "106",
+  "sol_count": 20,
+  "bugs": [
+    {
+      "label": "L1",
+      "description": "\"currentLoanOwner can manipulate loanInfo when any lenders try to buyout\"",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "label": "L1",
+      "description": "\"Borrower can be their own lender and steal funds from buyout due to reentrancy\"",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    }
+  ],
+  "oracle_indices": [
+    9
+  ],
+  "oracle_names": [
+    "REENTRANCY"
+  ],
+  "needs_rpc": false
+}

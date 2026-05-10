@@ -1,0 +1,19 @@
+{
+  "contest_id": "115",
+  "sol_count": 131,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"Fund loss or theft by attacker with creating a flash loan and setting SuperVault as receiver so executeOperation() will be get called by lendingPool but with attackers specified params\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC"
+  ],
+  "needs_rpc": false
+}

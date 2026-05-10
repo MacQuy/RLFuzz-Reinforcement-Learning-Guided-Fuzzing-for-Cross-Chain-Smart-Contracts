@@ -1,0 +1,27 @@
+{
+  "contest_id": "60",
+  "sol_count": 32,
+  "bugs": [
+    {
+      "label": "S6-4",
+      "description": "\"Wrong shortfall calculation\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "SC",
+      "description": "\"withdrawTo Does Not Sync Before Checking A Position\u2019s Margin Requirements\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC",
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

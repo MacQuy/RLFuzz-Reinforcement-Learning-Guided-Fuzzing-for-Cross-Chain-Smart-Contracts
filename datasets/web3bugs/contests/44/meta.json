@@ -1,0 +1,19 @@
+{
+  "contest_id": "44",
+  "sol_count": 4,
+  "bugs": [
+    {
+      "label": "S6-4",
+      "description": "\"Wrong calculation of erc20Delta and ethDelta\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    }
+  ],
+  "oracle_indices": [
+    11
+  ],
+  "oracle_names": [
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

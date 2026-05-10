@@ -1,0 +1,27 @@
+{
+  "contest_id": "97",
+  "sol_count": 33,
+  "bugs": [
+    {
+      "label": "S6-4",
+      "description": "\"Wrong formula when add fee incentivePool can lead to loss of funds.\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "SC",
+      "description": "\"Deleting nft Info can cause users\u2019 nft.unpaidRewards to be permanently erased\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC",
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

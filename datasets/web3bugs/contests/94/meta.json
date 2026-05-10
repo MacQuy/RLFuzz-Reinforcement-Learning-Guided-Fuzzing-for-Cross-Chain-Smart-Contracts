@@ -1,0 +1,19 @@
+{
+  "contest_id": "94",
+  "sol_count": 31,
+  "bugs": [
+    {
+      "label": "S4-1",
+      "description": "\"An offer made after auction end can be stolen by an auction winner\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    }
+  ],
+  "oracle_indices": [
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL"
+  ],
+  "needs_rpc": false
+}

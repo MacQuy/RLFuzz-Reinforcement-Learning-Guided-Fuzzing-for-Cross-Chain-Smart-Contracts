@@ -1,0 +1,19 @@
+{
+  "contest_id": "79",
+  "sol_count": 12,
+  "bugs": [
+    {
+      "label": "S6-4",
+      "description": "\"Wrong token allocation computation for token decimals != 18 if floor price not reached\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    }
+  ],
+  "oracle_indices": [
+    11
+  ],
+  "oracle_names": [
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

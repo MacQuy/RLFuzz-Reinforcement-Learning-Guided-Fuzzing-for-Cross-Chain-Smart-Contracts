@@ -1,0 +1,25 @@
+{
+  "contest_id": "45",
+  "sol_count": 31,
+  "bugs": [
+    {
+      "label": "S6-1",
+      "description": "\"borrow must accrueInterest first\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-1",
+      "description": "\"Wrong implementation of CreditLimitByMedian.sol#getLockedAmount() makes it unable to unlock lockedAmount in CreditLimitByMedian model\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    }
+  ],
+  "oracle_indices": [
+    11
+  ],
+  "oracle_names": [
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

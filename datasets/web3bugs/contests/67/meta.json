@@ -1,0 +1,39 @@
+{
+  "contest_id": "67",
+  "sol_count": 18,
+  "bugs": [
+    {
+      "label": "L1",
+      "description": "\"Withdrawers can get more value returned than expected with reentrant call\"",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "label": "S1-1",
+      "description": "\"Vaults with non-UST underlying asset vulnerable to flash loan attack on curve pool\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "L1",
+      "description": "\"deposit() function is open to reentrancy attacks\"",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "label": "L1",
+      "description": "\"sponsor() function in open to reentrancy attacks\"",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    }
+  ],
+  "oracle_indices": [
+    9,
+    20
+  ],
+  "oracle_names": [
+    "PRICE_ORACLE_MANIP",
+    "REENTRANCY"
+  ],
+  "needs_rpc": false
+}

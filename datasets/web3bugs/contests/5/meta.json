@@ -1,0 +1,57 @@
+{
+  "contest_id": "5",
+  "sol_count": 23,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"Missing DAO functionality to call changeDAO() function in Vader.sol\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Wrong calcAsymmetricShare calculation\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Wrong liquidity units calculation\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"getAddedAmount can return wrong results\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-3",
+      "description": "\"Wrong slippage protection on Token -> Token trades\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "SC",
+      "description": "\"Transfer fee is burned on wrong accounts\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "SC",
+      "description": "\"Vault Weight accounting is wrong for withdrawals\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC",
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

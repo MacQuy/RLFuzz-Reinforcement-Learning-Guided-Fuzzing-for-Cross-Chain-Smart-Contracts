@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-05-10T19:11:13.571466",
+  "datasets": {
+    "defihacklabs": {
+      "description": "Real cross-chain bridge exploits replayed via mainnet fork",
+      "needs_rpc": true,
+      "rpc_note": "Set ETH_RPC_URL and BSC_RPC_URL env vars (free at alchemy.com)",
+      "targets": [
+        "nomad",
+        "ronin",
+        "qubit",
+        "polynetwork",
+        "orbitchain",
+        "allbridge",
+        "nervebridge",
+        "xbridge",
+        "lifi",
+        "lifinew"
+      ],
+      "count": 10
+    },
+    "web3bugs": {
+      "description": "Code4rena audit contest contracts with ground-truth bug labels",
+      "needs_rpc": false,
+      "contests": 82,
+      "total_detectable_bugs": 227
+    },
+    "crosschainsentinel": {
+      "description": "Synthetic cross-chain themed contracts for oracle validation",
+      "needs_rpc": false,
+      "categories": [
+        "Reentrancy",
+        "OverflowUnderflow",
+        "UnprotectedEtherWithdrawal"
+      ],
+      "malicious": 142,
+      "benign": 158,
+      "note": "Use for oracle correctness + false-positive rate only"
+    }
+  },
+  "oracle_index_map": {
+    "9": "REENTRANCY",
+    "11": "INTEGER_OVERFLOW",
+    "12": "CROSS_CHAIN_MINT",
+    "13": "CROSS_CHAIN_FAKE_MSG",
+    "14": "CROSS_CHAIN_REPLAY",
+    "15": "CROSS_CHAIN_DRAIN",
+    "16": "CROSS_CHAIN_DESYNC",
+    "17": "CROSS_CHAIN_QUEUE",
+    "18": "CROSS_CHAIN_ATOMICITY",
+    "19": "ACCESS_CONTROL",
+    "20": "PRICE_ORACLE_MANIP",
+    "21": "CROSS_CHAIN_REENTRANCY"
+  }
+}

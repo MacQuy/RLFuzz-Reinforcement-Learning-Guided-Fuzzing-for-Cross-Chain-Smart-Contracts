@@ -1,0 +1,39 @@
+{
+  "contest_id": "30",
+  "sol_count": 68,
+  "bugs": [
+    {
+      "label": "S6-3",
+      "description": "\"Controller.setCap sets wrong vault balance\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "SC",
+      "description": "\"Controller does not raise an error when there\u2019s insufficient liquidity\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Vault.balance() mixes normalized and standard amounts\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Vault.withdraw mixes normalized and standard amounts\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC",
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

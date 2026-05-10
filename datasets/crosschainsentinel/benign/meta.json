@@ -1,0 +1,7 @@
+{
+  "category": "benign",
+  "count": 158,
+  "oracle_idx": null,
+  "note": "Expected: fuzzer reports NO bugs (false-positive check)",
+  "needs_rpc": false
+}

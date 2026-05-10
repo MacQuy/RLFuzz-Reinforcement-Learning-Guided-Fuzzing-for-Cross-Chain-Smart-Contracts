@@ -1,0 +1,27 @@
+{
+  "contest_id": "68",
+  "sol_count": 36,
+  "bugs": [
+    {
+      "label": "S3-1",
+      "description": "\"Unused ERC20 tokens are not refunded",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "SC",
+      "description": "\"It might not be possible to withdraw tokens from the basket\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    16,
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "CROSS_CHAIN_DESYNC"
+  ],
+  "needs_rpc": false
+}

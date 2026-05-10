@@ -1,0 +1,19 @@
+{
+  "contest_id": "65",
+  "sol_count": 6,
+  "bugs": [
+    {
+      "label": "S3-1",
+      "description": "\"Wrong fee calculation after totalSupply was 0\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    }
+  ],
+  "oracle_indices": [
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL"
+  ],
+  "needs_rpc": false
+}

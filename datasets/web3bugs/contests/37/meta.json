@@ -1,0 +1,19 @@
+{
+  "contest_id": "37",
+  "sol_count": 29,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"Steal tokens from TempusController\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC"
+  ],
+  "needs_rpc": false
+}

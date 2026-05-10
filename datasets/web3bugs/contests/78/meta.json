@@ -1,0 +1,55 @@
+{
+  "contest_id": "78",
+  "sol_count": 72,
+  "bugs": [
+    {
+      "label": "S6-3",
+      "description": "\"wrong minting amount\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "SC",
+      "description": "\"Double transfer in the transferAndCall function of ERC677\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S3-2",
+      "description": "\"Logic error in burnFlashGovernanceAsset can cause locked assets to be stolen\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "S1-1",
+      "description": "\"Flash loan price manipulation in purchasePyroFlan()\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "S4-1",
+      "description": "\"Loss Of Flash Governance Tokens If They Are Not Withdrawn Before The Next Request\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "S1-1",
+      "description": "\"LP pricing formula is vulnerable to flashloan manipulation\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    16,
+    19,
+    20
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "CROSS_CHAIN_DESYNC",
+    "INTEGER_OVERFLOW",
+    "PRICE_ORACLE_MANIP"
+  ],
+  "needs_rpc": false
+}

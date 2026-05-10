@@ -1,0 +1,25 @@
+{
+  "contest_id": "98",
+  "sol_count": 41,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"Incorrect strike price displayed in name/symbol of qToken\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "SC",
+      "description": "\"EIP712MetaTransaction.executeMetaTransaction() failed txs are open to replay attacks\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC"
+  ],
+  "needs_rpc": false
+}

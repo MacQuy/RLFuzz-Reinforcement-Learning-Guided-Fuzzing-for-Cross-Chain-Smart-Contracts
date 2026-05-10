@@ -1,0 +1,25 @@
+{
+  "contest_id": "64",
+  "sol_count": 57,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"cancelPromotion is too rigorous\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "SC",
+      "description": "\"Contract does not work with fee-on transfer tokens\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC"
+  ],
+  "needs_rpc": false
+}

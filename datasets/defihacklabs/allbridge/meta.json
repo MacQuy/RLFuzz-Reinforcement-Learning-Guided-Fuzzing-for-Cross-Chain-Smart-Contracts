@@ -1,0 +1,12 @@
+{
+  "name": "allbridge",
+  "source_file": "Allbridge_exp.sol",
+  "chain": "bsc",
+  "fork_block": 26982067,
+  "loss_usd": 570000,
+  "expected_bugs": [
+    "PRICE_ORACLE_MANIP"
+  ],
+  "needs_rpc": true,
+  "rpc_env_var": "BSC_RPC_URL"
+}

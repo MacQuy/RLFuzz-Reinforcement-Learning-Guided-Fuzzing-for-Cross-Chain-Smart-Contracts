@@ -1,0 +1,25 @@
+{
+  "contest_id": "190",
+  "sol_count": 204,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"griefing / blocking / delaying users to withdraw\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "SC",
+      "description": "\"A whale user is able to cause freeze of funds of other users by bypassing withdraw limit\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC"
+  ],
+  "needs_rpc": false
+}

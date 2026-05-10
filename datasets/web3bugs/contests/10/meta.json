@@ -1,0 +1,25 @@
+{
+  "contest_id": "10",
+  "sol_count": 20,
+  "bugs": [
+    {
+      "label": "S3-1",
+      "description": "\"NFT transfer approvals are not removed and cannot be revoked thus leading to loss of NFT tokens\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "S3-1",
+      "description": "\"Approval for NFT transfers is not removed after transfer\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    }
+  ],
+  "oracle_indices": [
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL"
+  ],
+  "needs_rpc": false
+}

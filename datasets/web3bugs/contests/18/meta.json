@@ -1,0 +1,27 @@
+{
+  "contest_id": "18",
+  "sol_count": 29,
+  "bugs": [
+    {
+      "label": "S6-1",
+      "description": "\"Reward computation is wrong\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S3-1",
+      "description": "\"LendingPair.liquidateAccount does not accrue and update cumulativeInterestRate\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

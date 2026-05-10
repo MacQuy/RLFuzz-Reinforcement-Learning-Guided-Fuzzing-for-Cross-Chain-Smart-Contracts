@@ -1,0 +1,67 @@
+{
+  "contest_id": "192",
+  "sol_count": 28,
+  "bugs": [
+    {
+      "label": "S3-1",
+      "description": "\"Lock.sol: assets deposited with Lock.extendLock function are lost\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "SC",
+      "description": "\"Riskless trades due to delay check\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "SC",
+      "description": "\"Bypass the maximum PnL check to take extra profit\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Incorrect calculation of new price while adding position\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "L1",
+      "description": "\"reentrancy attack during mint() function in Position contract which can lead to removing of the other user\u2019s limit orders or stealing contract funds because initId is set low value\"",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Users can bypass the maxWinPercent limit using a partially closing\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "SC",
+      "description": "\"User can abuse tight stop losses and high leverage to make risk free trades\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Not enough margin pulled or burned from user when adding to a position\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    }
+  ],
+  "oracle_indices": [
+    9,
+    11,
+    16,
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "CROSS_CHAIN_DESYNC",
+    "INTEGER_OVERFLOW",
+    "REENTRANCY"
+  ],
+  "needs_rpc": false
+}

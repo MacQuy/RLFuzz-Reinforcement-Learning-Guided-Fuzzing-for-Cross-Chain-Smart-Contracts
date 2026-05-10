@@ -1,0 +1,71 @@
+{
+  "contest_id": "35",
+  "sol_count": 46,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"Wrong usage of positionId in ConcentratedLiquidityPoolManager\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S3-1",
+      "description": "\"ConcentratedLiquidityPoolManager\u2019s incentives can be stolen\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "SC",
+      "description": "\"ConcentratedLiquidityPosition.sol#collect() Users may get double the amount of yield when they call collect() before burn()\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "SC",
+      "description": "\"ConcentratedLiquidityPosition.sol#burn() Wrong implementation allows attackers to steal yield\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Wrong inequality when adding/removing liquidity in current price range\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-3",
+      "description": "\"ConcentratedLiquidityPool.burn() Wrong implementation\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"ConcentratedLiquidityPool: incorrect feeGrowthGlobal accounting when crossing ticks\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-1",
+      "description": "\"ConcentratedLiquidityPool: secondsPerLiquidity should be modified whenever pool liquidity changes\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "SC",
+      "description": "\"Understanding the fee growth mechanism (why nearestTick is unsuitable)\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    16,
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "CROSS_CHAIN_DESYNC",
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

@@ -1,0 +1,262 @@
+{
+  "category": "Reentrancy",
+  "count": 42,
+  "oracle_idx": 9,
+  "oracle_name": "REENTRANCY",
+  "needs_rpc": false,
+  "note": "Synthetic contracts \u2014 good for oracle correctness and FP-rate testing",
+  "contracts": [
+    {
+      "file": "Contract159.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract160.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract161.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract162.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract163.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract164.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract165.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract166.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract167.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract168.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract169.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract170.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract171.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract172.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract173.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract174.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract175.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract176.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract177.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract178.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract179.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract180.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract181.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract182.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract183.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract184.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract185.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract186.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract187.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract188.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract189.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract190.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract191.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract192.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract193.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract194.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract195.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract196.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract197.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract198.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract199.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "file": "Contract200.sol",
+      "label": "Reentrancy",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    }
+  ]
+}

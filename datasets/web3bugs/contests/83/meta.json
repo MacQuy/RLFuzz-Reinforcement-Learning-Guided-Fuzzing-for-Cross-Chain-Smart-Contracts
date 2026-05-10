@@ -1,0 +1,49 @@
+{
+  "contest_id": "83",
+  "sol_count": 15,
+  "bugs": [
+    {
+      "label": "S3-1",
+      "description": "\"Wrong reward token calculation in MasterChef contract\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "S6-1",
+      "description": "\"Masterchef: Improper handling of deposit fee\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S1-1",
+      "description": "\"USDMPegRecovery Risk of fund locked",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "SC",
+      "description": "\"ConvexStakingWrapper.sol#_calcRewardIntegral Wrong implementation can disrupt rewards calculation and distribution\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "SC",
+      "description": "\"MasterChef.sol Users won\u2019t be able to receive the concur rewards\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    16,
+    19,
+    20
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "CROSS_CHAIN_DESYNC",
+    "INTEGER_OVERFLOW",
+    "PRICE_ORACLE_MANIP"
+  ],
+  "needs_rpc": false
+}

@@ -1,0 +1,19 @@
+{
+  "contest_id": "109",
+  "sol_count": 22,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"Cross-chain smart contract calls can revert but source chain tokens remain burnt and are not refunded\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC"
+  ],
+  "needs_rpc": false
+}

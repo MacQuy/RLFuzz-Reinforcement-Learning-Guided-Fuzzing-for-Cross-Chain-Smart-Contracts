@@ -1,0 +1,39 @@
+{
+  "contest_id": "51",
+  "sol_count": 23,
+  "bugs": [
+    {
+      "label": "S6-4",
+      "description": "\"Can not update target price\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S3-1",
+      "description": "\"SwapUtils.sol Wrong implementation\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Swaps are not split when trade crosses target price\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-3",
+      "description": "\"Ideal balance is not calculated correctly when providing imbalanced liquidity\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

@@ -1,0 +1,33 @@
+{
+  "contest_id": "47",
+  "sol_count": 4,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"The design of wibBTC is not fully compatible with the current Curve StableSwap pool\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S6-3",
+      "description": "\"Approved spender can spend too many tokens\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "SC",
+      "description": "\"WrappedIbbtcEth contract will use stalled price for mint/burn if updatePricePerShare wasn\u2019t run properly\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC",
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

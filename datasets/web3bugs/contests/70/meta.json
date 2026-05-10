@@ -1,0 +1,91 @@
+{
+  "contest_id": "70",
+  "sol_count": 74,
+  "bugs": [
+    {
+      "label": "S4-1",
+      "description": "\"VaderPoolV2 minting synths & fungibles can be frontrun\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Oracle doesn\u2019t calculate USDV/VADER price correctly\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Vader TWAP averages wrong\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Oracle returns an improperly scaled USDV/VADER price\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S1-1",
+      "description": "\"LPs of VaderPoolV2 can manipulate pool reserves to extract funds from the reserve.\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "S1-1",
+      "description": "\"Redemption value of synths can be manipulated to drain VaderPoolV2 of all native assets in the associated pair\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Reserve does not properly apply prices of VADER and USDV tokens\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"USDV.sol Mint and Burn Amounts Are Incorrect\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S3-1",
+      "description": "\"previousPrices Is Never Updated Upon Syncing Token Price\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "SC",
+      "description": "\"totalLiquidityWeight Is Updated When Adding New Token Pairs Which Skews Price Data For getVaderPrice and getUSDVPrice\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "SC",
+      "description": "\"Using single total native reserve variable for synth and non-synth reserves of VaderPoolV2 can lead to losses for synth holders\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "SC",
+      "description": "\"Council veto protection does not work\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    16,
+    19,
+    20
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "CROSS_CHAIN_DESYNC",
+    "INTEGER_OVERFLOW",
+    "PRICE_ORACLE_MANIP"
+  ],
+  "needs_rpc": false
+}

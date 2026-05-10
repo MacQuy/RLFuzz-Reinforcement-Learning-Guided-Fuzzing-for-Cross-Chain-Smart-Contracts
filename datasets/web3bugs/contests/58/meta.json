@@ -1,0 +1,33 @@
+{
+  "contest_id": "58",
+  "sol_count": 148,
+  "bugs": [
+    {
+      "label": "S6-4",
+      "description": "\"Wrong implementation of performanceFee can cause users to lose 50% to 100% of their funds\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S4-1",
+      "description": "\"UniV3Vault.sol#collectEarnings() can be front run\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "S3-1",
+      "description": "\"AaveVault does not update TVL on deposit/withdraw\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

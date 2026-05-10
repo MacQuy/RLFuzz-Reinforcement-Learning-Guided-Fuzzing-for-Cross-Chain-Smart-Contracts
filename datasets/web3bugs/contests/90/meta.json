@@ -1,0 +1,19 @@
+{
+  "contest_id": "90",
+  "sol_count": 46,
+  "bugs": [
+    {
+      "label": "S4-1",
+      "description": "\"IndexLogic: An attacker can mint tokens for himself using assets deposited by other users\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    }
+  ],
+  "oracle_indices": [
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL"
+  ],
+  "needs_rpc": false
+}

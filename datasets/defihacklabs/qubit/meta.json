@@ -1,0 +1,13 @@
+{
+  "name": "qubit",
+  "source_file": "Qubit_exp.sol",
+  "chain": "mainnet",
+  "fork_block": 14090169,
+  "loss_usd": 80000000,
+  "expected_bugs": [
+    "CROSS_CHAIN_FAKE_MSG",
+    "ACCESS_CONTROL"
+  ],
+  "needs_rpc": true,
+  "rpc_env_var": "ETH_RPC_URL"
+}

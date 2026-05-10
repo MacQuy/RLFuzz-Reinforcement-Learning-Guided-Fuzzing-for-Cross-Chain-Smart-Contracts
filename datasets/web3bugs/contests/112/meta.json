@@ -1,0 +1,27 @@
+{
+  "contest_id": "112",
+  "sol_count": 158,
+  "bugs": [
+    {
+      "label": "S6-1",
+      "description": "\"User can steal all rewards due to checkpoint after transfer\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S3-1",
+      "description": "\"function lockFunds in TopUpActionLibrary can cause serious fund lose. fee and Capped bypass. It\u2019s not calling stakerVault.increaseActionLockedBalance when transfers stakes.\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

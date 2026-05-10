@@ -1,0 +1,19 @@
+{
+  "contest_id": "28",
+  "sol_count": 98,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"SushiToken transfers are broken due to wrong delegates accounting on transfers\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC"
+  ],
+  "needs_rpc": false
+}

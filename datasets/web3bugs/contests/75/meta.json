@@ -1,0 +1,19 @@
+{
+  "contest_id": "75",
+  "sol_count": 5,
+  "bugs": [
+    {
+      "label": "L1",
+      "description": "\"The reentrancy vulnerability in _safeMint can allow an attacker to steal all rewards\"",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    }
+  ],
+  "oracle_indices": [
+    9
+  ],
+  "oracle_names": [
+    "REENTRANCY"
+  ],
+  "needs_rpc": false
+}

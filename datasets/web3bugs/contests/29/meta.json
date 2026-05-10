@@ -1,0 +1,65 @@
+{
+  "contest_id": "29",
+  "sol_count": 31,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"IndexPool\u2019s INIT_POOL_SUPPLY is not fair.\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"hybrid pool uses wrong non_optimal_mint_fee\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "SC",
+      "description": "\"IndexPool.mint The first liquidity provider is forced to supply assets in the same amount",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"HybridPool\u2019s reserve is converted to \u201camount\u201d twice\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-3",
+      "description": "\"ConstantProductPool.burnSingle swap amount computations should use balance\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Incorrect usage of _pow in _computeSingleOutGivenPoolIn of IndexPool\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Incorrect multiplication in _computeSingleOutGivenPoolIn of IndexPool\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "L1",
+      "description": "\"Funds in the pool could be stolen by exploiting flashSwap in HybridPool\"",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    }
+  ],
+  "oracle_indices": [
+    9,
+    11,
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC",
+    "INTEGER_OVERFLOW",
+    "REENTRANCY"
+  ],
+  "needs_rpc": false
+}

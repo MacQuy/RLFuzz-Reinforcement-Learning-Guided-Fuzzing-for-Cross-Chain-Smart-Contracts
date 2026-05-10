@@ -1,0 +1,47 @@
+{
+  "contest_id": "62",
+  "sol_count": 17,
+  "bugs": [
+    {
+      "label": "S6-4",
+      "description": "\"Wrong calculation of excess depositToken allows stream creator to retrieve depositTokenFlashloanFeeAmount",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Reward token not correctly recovered\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "SC",
+      "description": "\"Creating rewardTokens without streaming depositTokens\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S3-1",
+      "description": "\"ts.tokens sometimes calculated incorrectly\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "S6-3",
+      "description": "\"recoverTokens doesn\u2019t work when isSale is true\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    16,
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "CROSS_CHAIN_DESYNC",
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

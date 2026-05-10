@@ -1,0 +1,27 @@
+{
+  "contest_id": "49",
+  "sol_count": 52,
+  "bugs": [
+    {
+      "label": "S6-3",
+      "description": "\"OverlayV1UniswapV3Market computes wrong market liquidity\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "L1",
+      "description": "\"OZ ERC1155Supply vulnerability\"",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    }
+  ],
+  "oracle_indices": [
+    9,
+    11
+  ],
+  "oracle_names": [
+    "INTEGER_OVERFLOW",
+    "REENTRANCY"
+  ],
+  "needs_rpc": false
+}

@@ -1,0 +1,57 @@
+{
+  "contest_id": "3",
+  "sol_count": 19,
+  "bugs": [
+    {
+      "label": "L1",
+      "description": "\"Re-entrancy bug allows inflating balance\"",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "label": "S1-1",
+      "description": "\"Price feed can be manipulated\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    },
+    {
+      "label": "S6-2",
+      "description": "\"Inconsistent usage of applyInterest\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Wrong liquidation logic\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "SC",
+      "description": "\"Users are credited more tokens when paying back debt with registerTradeAndBorrow\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S3-1",
+      "description": "\"account.holdsToken is never set\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    }
+  ],
+  "oracle_indices": [
+    9,
+    11,
+    16,
+    19,
+    20
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "CROSS_CHAIN_DESYNC",
+    "INTEGER_OVERFLOW",
+    "PRICE_ORACLE_MANIP",
+    "REENTRANCY"
+  ],
+  "needs_rpc": false
+}

@@ -1,0 +1,13 @@
+{
+  "name": "nomad",
+  "source_file": "NomadBridge_exp.sol",
+  "chain": "mainnet",
+  "fork_block": 15259100,
+  "loss_usd": 152000000,
+  "expected_bugs": [
+    "CROSS_CHAIN_FAKE_MSG",
+    "CROSS_CHAIN_DESYNC"
+  ],
+  "needs_rpc": true,
+  "rpc_env_var": "ETH_RPC_URL"
+}

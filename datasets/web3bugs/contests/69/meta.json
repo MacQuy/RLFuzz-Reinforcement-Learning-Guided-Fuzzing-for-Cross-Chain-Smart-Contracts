@@ -1,0 +1,19 @@
+{
+  "contest_id": "69",
+  "sol_count": 113,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"A vault can be locked from MarketplaceZap and StakingZap\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC"
+  ],
+  "needs_rpc": false
+}

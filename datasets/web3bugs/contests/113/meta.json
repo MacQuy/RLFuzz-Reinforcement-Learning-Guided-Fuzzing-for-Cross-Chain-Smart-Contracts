@@ -1,0 +1,35 @@
+{
+  "contest_id": "113",
+  "sol_count": 7,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"Avoidance of Liquidation Via Malicious Oracle\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "S3-1",
+      "description": "\"Critical Oracle Manipulation Risk by Lender\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Mistake while checking LTV to lender accepted LTV\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    16,
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "CROSS_CHAIN_DESYNC",
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

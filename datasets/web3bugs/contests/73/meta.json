@@ -1,0 +1,19 @@
+{
+  "contest_id": "73",
+  "sol_count": 73,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"L1Migrator.sol#migrateETH() does not send bridgeMinter\u2019s ETH to L2 causing ETH get frozen in the contract\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC"
+  ],
+  "needs_rpc": false
+}

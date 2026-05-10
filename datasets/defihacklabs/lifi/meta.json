@@ -1,0 +1,12 @@
+{
+  "name": "lifi",
+  "source_file": "LiFi_exp.sol",
+  "chain": "mainnet",
+  "fork_block": 0,
+  "loss_usd": null,
+  "expected_bugs": [
+    "ACCESS_CONTROL"
+  ],
+  "needs_rpc": true,
+  "rpc_env_var": "ETH_RPC_URL"
+}

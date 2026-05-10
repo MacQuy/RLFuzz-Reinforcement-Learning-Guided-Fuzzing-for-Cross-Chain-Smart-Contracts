@@ -1,0 +1,322 @@
+{
+  "category": "UnprotectedEtherWithdrawal",
+  "count": 52,
+  "oracle_idx": 19,
+  "oracle_name": "ACCESS_CONTROL",
+  "needs_rpc": false,
+  "note": "Synthetic contracts \u2014 good for oracle correctness and FP-rate testing",
+  "contracts": [
+    {
+      "file": "Contract249.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract250.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract251.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract252.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract253.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract254.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract255.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract256.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract257.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract258.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract259.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract260.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract261.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract262.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract263.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract264.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract265.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract266.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract267.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract268.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract269.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract270.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract271.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract272.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract273.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract274.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract275.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract276.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract277.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract278.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract279.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract280.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract281.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract282.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract283.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract284.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract285.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract286.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract287.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract288.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract289.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract290.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract291.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract292.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract293.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract294.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract295.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract296.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract297.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract298.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract299.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "file": "Contract300.sol",
+      "label": "UnprotectedEtherWithdrawal",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "contest_id": "16",
+  "sol_count": 36,
+  "bugs": [
+    {
+      "label": "S6-3",
+      "description": "\"Use of incorrect index leads to incorrect updation of funding rates\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Logic error in fee subtraction\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"Wrong price scale for GasOracle\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    }
+  ],
+  "oracle_indices": [
+    11
+  ],
+  "oracle_names": [
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

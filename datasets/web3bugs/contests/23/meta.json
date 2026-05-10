@@ -1,0 +1,27 @@
+{
+  "contest_id": "23",
+  "sol_count": 56,
+  "bugs": [
+    {
+      "label": "L1",
+      "description": "\"DAO proposals can be executed by anyone due to vulnerable TimelockController\"",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "label": "S1-1",
+      "description": "\"Liquidity token value can be manipulated\"",
+      "oracle_idx": 20,
+      "oracle_name": "PRICE_ORACLE_MANIP"
+    }
+  ],
+  "oracle_indices": [
+    9,
+    20
+  ],
+  "oracle_names": [
+    "PRICE_ORACLE_MANIP",
+    "REENTRANCY"
+  ],
+  "needs_rpc": false
+}

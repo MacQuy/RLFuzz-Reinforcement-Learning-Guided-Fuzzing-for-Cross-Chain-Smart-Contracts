@@ -1,0 +1,33 @@
+{
+  "contest_id": "36",
+  "sol_count": 6,
+  "bugs": [
+    {
+      "label": "L1",
+      "description": "\"Re-entrancy in settleAuction allow stealing all funds\"",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "label": "S3-1",
+      "description": "\"Basket.sol#auctionBurn() A failed auction will freeze part of the funds\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "L1",
+      "description": "\"Reentrancy in settleAuction(): malicious publisher can bypass index timelock mechanism",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    }
+  ],
+  "oracle_indices": [
+    9,
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "REENTRANCY"
+  ],
+  "needs_rpc": false
+}

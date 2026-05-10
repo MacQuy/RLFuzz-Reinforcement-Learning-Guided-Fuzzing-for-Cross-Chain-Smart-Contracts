@@ -1,0 +1,19 @@
+{
+  "contest_id": "104",
+  "sol_count": 23,
+  "bugs": [
+    {
+      "label": "L1",
+      "description": "\"Duplicate NFTs Can Be Minted if payableToken Has a Callback Attached to it\"",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    }
+  ],
+  "oracle_indices": [
+    9
+  ],
+  "oracle_names": [
+    "REENTRANCY"
+  ],
+  "needs_rpc": false
+}

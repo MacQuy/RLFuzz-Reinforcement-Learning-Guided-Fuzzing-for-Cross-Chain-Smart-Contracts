@@ -1,0 +1,25 @@
+{
+  "contest_id": "101",
+  "sol_count": 43,
+  "bugs": [
+    {
+      "label": "S6-2",
+      "description": "\"LenderPool: Principal withdrawable is incorrectly calculated if start() is invoked with non-zero start fee\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    },
+    {
+      "label": "S6-3",
+      "description": "\"PooledCreditLine: termination likely fails because _principleWithdrawable is treated as shares\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    }
+  ],
+  "oracle_indices": [
+    11
+  ],
+  "oracle_names": [
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

@@ -1,0 +1,25 @@
+{
+  "contest_id": "38",
+  "sol_count": 8,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"QuickAccManager.sol#cancel() Wrong hashTx makes it impossible to cancel a scheduled transaction\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    },
+    {
+      "label": "SC",
+      "description": "\"QuickAccManager Smart Contract signature verification can be exploited\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC"
+  ],
+  "needs_rpc": false
+}

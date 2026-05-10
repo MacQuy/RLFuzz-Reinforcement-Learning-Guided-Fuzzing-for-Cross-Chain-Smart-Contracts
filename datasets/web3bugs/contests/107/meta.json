@@ -1,0 +1,33 @@
+{
+  "contest_id": "107",
+  "sol_count": 33,
+  "bugs": [
+    {
+      "label": "L1",
+      "description": "\"Update initializer modifier to prevent reentrancy during initialization\"",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "label": "L1",
+      "description": "\"Reentrancy issue in yVault.deposit\"",
+      "oracle_idx": 9,
+      "oracle_name": "REENTRANCY"
+    },
+    {
+      "label": "SC",
+      "description": "\"Bad debts should not continue to accrue interest\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    9,
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC",
+    "REENTRANCY"
+  ],
+  "needs_rpc": false
+}

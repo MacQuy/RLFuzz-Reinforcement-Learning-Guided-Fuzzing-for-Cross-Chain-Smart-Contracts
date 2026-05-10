@@ -1,0 +1,27 @@
+{
+  "contest_id": "71",
+  "sol_count": 21,
+  "bugs": [
+    {
+      "label": "S4-1",
+      "description": "\"Initial pool deposit can be stolen\"",
+      "oracle_idx": 19,
+      "oracle_name": "ACCESS_CONTROL"
+    },
+    {
+      "label": "S6-4",
+      "description": "\"PoolTemplate.sol#resume() Wrong implementation of resume() will compensate overmuch redeem amount from index pools\"",
+      "oracle_idx": 11,
+      "oracle_name": "INTEGER_OVERFLOW"
+    }
+  ],
+  "oracle_indices": [
+    11,
+    19
+  ],
+  "oracle_names": [
+    "ACCESS_CONTROL",
+    "INTEGER_OVERFLOW"
+  ],
+  "needs_rpc": false
+}

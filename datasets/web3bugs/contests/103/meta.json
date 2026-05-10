@@ -1,0 +1,19 @@
+{
+  "contest_id": "103",
+  "sol_count": 28,
+  "bugs": [
+    {
+      "label": "SC",
+      "description": "\"All swapping functions lack checks for returned tokens\"",
+      "oracle_idx": 16,
+      "oracle_name": "CROSS_CHAIN_DESYNC"
+    }
+  ],
+  "oracle_indices": [
+    16
+  ],
+  "oracle_names": [
+    "CROSS_CHAIN_DESYNC"
+  ],
+  "needs_rpc": false
+}
